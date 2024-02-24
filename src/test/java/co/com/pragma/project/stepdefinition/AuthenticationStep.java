@@ -1,5 +1,6 @@
 package co.com.pragma.project.stepdefinition;
 
+import co.com.pragma.project.questions.ValidateErrorCredentials;
 import co.com.pragma.project.tasks.Login;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
@@ -13,6 +14,7 @@ import net.thucydides.core.util.EnvironmentVariables;
 import org.hamcrest.Matchers;
 
 import static co.com.pragma.project.utils.Constant.*;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -43,6 +45,15 @@ public class AuthenticationStep {
         );
     }
 
+    @When("ingresa las credenciales incorrectas")
+    public void entertheincorrectcredentials() {
+        user = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty(USER_NAME);
+        pwd = "";
+        theActorCalled(ACTOR).attemptsTo(
+                Login.authentication(user,pwd)
+        );
+    }
+
     @Then("visualizara el home y espera una validacion")
     public void itWillDisplayTheHomeAndWaitForAValidation() {
         theActorInTheSpotlight().should(
@@ -50,6 +61,13 @@ public class AuthenticationStep {
                         TheWebPage.title(),
                         Matchers.containsString(TITLE_WEBSITE)
                 )
+        );
+    }
+
+    @Then("visualizara un mensaje de error")
+    public void willDisplayAnErrorMessage() {
+        theActorInTheSpotlight().should(
+                seeThat(ValidateErrorCredentials.faild(ERROR_MESSAGE_TEXT))
         );
     }
 }

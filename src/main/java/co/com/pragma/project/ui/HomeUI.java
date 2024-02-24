@@ -1,7 +1,13 @@
 package co.com.pragma.project.ui;
 
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 
 public class HomeUI {
@@ -27,5 +33,19 @@ public class HomeUI {
     //Localizador - General para los productos de las distintas categorias
     public static final Target BUTTON_ADD_TO_CARD = Target.the("agrega productos a la canasta")
             .located(By.xpath("//a[@class='btn btn-success btn-lg']"));
+
+    public static final Target BUTTON_DELETE_TO_CARD = Target.the("elimina los productos que estan dentro" +
+                    "del carrito")
+            .located(By.xpath("//tbody/tr[1]/td[4]/a"));
+
+
+    private static List<WebElement> locatorListProductsInYourCart() {
+        String xpath = "//tbody[@id='tbodyid']/tr";
+        return BrowseTheWeb.as(theActorInTheSpotlight()).getDriver().findElements(By.xpath(xpath));
+    }
+
+    public static List<WebElement> getLocatorListProductsInYourCart() {
+        return locatorListProductsInYourCart();
+    }
 
 }

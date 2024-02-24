@@ -83,6 +83,7 @@ sin fallar las veces que se programe dentro del parametro que recibe (chooseAmou
                 WaitUntil.the(BUTTON_ADD_TO_CARD, isVisible())
                         .forNoMoreThan(TIME_SHORT).seconds(), Click.on(BUTTON_ADD_TO_CARD)
         );
+
         if (Boolean.TRUE.equals(Alert.isPresent().answeredBy(actor))) {
             log.info(MENSAGE_ALERT);
             actor.attemptsTo(

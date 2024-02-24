@@ -5,6 +5,10 @@ public class Constant {
     private Constant(){}
 
     public static final String ACTOR = "alejandro";
+    public static final int ADD_TWO_PRODUCTS = 2;
+    public static final int ADD_ONE_PRODUCTS = 1;
+    public static final String ERROR_MESSAGE_TEXT = "Please fill out Username and Password.";
+    public static final String ERROR_MESSAGE_TEXT_ALERT_FILL_FORM = "Please fill out Name and Creditcard.";
     public static final int FOUR = 4;
     public static final String NAME_JSON_DATA_INFORMATION = "dataInformationPersonal.json";
     public static final int NINE = 9;
@@ -17,7 +21,6 @@ public class Constant {
     public static final int TIME_SHORT = 5;
     public static final String TITLE_WEBSITE = "STORE";
     public static final int TWO = 2;
-    public static final int ADD_TWO_PRODUCTS = 2;
     public static final int SIX = 6;
     public static final String STRING_FORMA_THREE_PARAMS = "%s%s%s";
     public static final String USER_NAME = "credentials.default.user.name";

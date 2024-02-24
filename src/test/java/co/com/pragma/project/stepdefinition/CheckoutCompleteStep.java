@@ -3,6 +3,7 @@ package co.com.pragma.project.stepdefinition;
 import co.com.pragma.project.questions.ValidateCheckoutComplete;
 import co.com.pragma.project.tasks.PurchasingInformationForm;
 import co.com.pragma.project.tasks.RandomlySelectCategoryAndProducts;
+import co.com.pragma.project.tasks.YourCart;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,6 +38,7 @@ public class CheckoutCompleteStep {
                    este se puede cambiar por la cantidad que deseamos EJ: 1,2,3,4,5... Entre más productos se agreguen
                    este tardara en agregarlos.
                  */
+                YourCart.access(),
                 PurchasingInformationForm.withParams(
                         String.format(
                                 STRING_FORMA_THREE_PARAMS,

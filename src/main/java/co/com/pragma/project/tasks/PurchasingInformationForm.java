@@ -39,7 +39,6 @@ public class PurchasingInformationForm implements Task {
             "personal")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(MODAL_CART),
                 Click.on(BUTTON_PLACE_ORDER)
         );
         waiting(TIME_SHORT);
@@ -92,7 +91,7 @@ public class PurchasingInformationForm implements Task {
           se trabaja de dicha manera para protejer los datos
           */
         String names = String.valueOf(faker.name().name());
-        String contry = faker.address().country();
+        String country = faker.address().country();
         String city = faker.address().city();
         String creditCard = faker.finance().creditCard();
         String month = dateMonth(currentDate);
@@ -100,7 +99,7 @@ public class PurchasingInformationForm implements Task {
 
         String jsonModified = jsonNode.toString()
                 .replace("${firstNameFul}", names)
-                .replace("${country}", contry)
+                .replace("${country}", country)
                 .replace("${city}", city)
                 .replace("${creditCard}", creditCard)
                 .replace("${month}", month)
