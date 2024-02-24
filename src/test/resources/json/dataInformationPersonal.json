@@ -1,0 +1,8 @@
+{
+  "firstNameFul": "${firstNameFul}",
+  "country": "${country}",
+  "city": "${city}",
+  "creditCard": "${creditCard}",
+  "month": "${month}",
+  "year": "${year}"
+}
